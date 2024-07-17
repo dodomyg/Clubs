@@ -36,17 +36,17 @@ app.use('/message',messageRoute)
 //   });
 
 
-const __dirname1 = path.resolve()
-if(process.env.NODE_ENV==='production'){
-  app.use(express.static(path.join(__dirname1,'/Frontend/x/build')))
-  app.get("*",(req,resp)=>{
-    resp.sendFile(path.resolve(__dirname1,"frontend","built","index.html"));
-  });
-}else{
-  app.get('/',(req,resp)=>{
-    resp.send('Api is running successfuly')
-  })
-}
+// const __dirname1 = path.resolve()
+// if(process.env.NODE_ENV==='production'){
+//   app.use(express.static(path.join(__dirname1,'/Frontend/x/build')))
+//   app.get("*",(req,resp)=>{
+//     resp.sendFile(path.resolve(__dirname1,"frontend","built","index.html"));
+//   });
+// }else{
+//   app.get('/',(req,resp)=>{
+//     resp.send('Api is running successfuly')
+//   })
+// }
 
 
 
@@ -102,8 +102,5 @@ const io = require('socket.io')(serverStart, {
     socket.off('setup',()=>{
         socket.leave(userData._id)
     })
-
-
-
   });
 

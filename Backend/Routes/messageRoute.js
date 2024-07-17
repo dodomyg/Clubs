@@ -13,7 +13,7 @@ router.post('/sendMessage',verifyToken,async(req,resp)=>{
   try {
     const userId =req.userId
     if(!content || !chatId){
-      return resp.status(404).json({message:" credentials are empty"})
+      return resp.status(404).json({error:" credentials are empty"})
     }
     var newMsg = {
       sender: userId,
